@@ -1,7 +1,7 @@
-# Website Blocker (Windows & Linux)
+# GPT Blocker (Windows & Linux)
 
 ## 📌 Overview
-This is a simple Python script that blocks or unblocks specific websites by modifying the system's `hosts` file. It works on both **Windows** and **Linux**.
+This is a simple Python script that blocks or unblocks chatgpt and any website by modifying the system's `hosts` file. It works on both **Windows** and **Linux**.
 
 ## 🔹 Features
 ✅ Blocks websites system-wide (all browsers).  
