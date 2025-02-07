@@ -15,8 +15,8 @@ This is a simple Python script that blocks or unblocks specific websites by modi
 ## ⚡ Installation
 ### 1️⃣ **Clone the Repository**
 ```sh
-git clone https://github.com/your-repo/website-blocker.git
-cd website-blocker
+git clone git@github.com:ArinPrajapati/gptBlocker.git
+cd gptBlocker
 ```
 
 ### 2️⃣ **Install Python (if not installed)**
@@ -34,16 +34,22 @@ python --version
 
 ### **Block Websites**
 ```sh
-python script.py block
+python main.py block
+```
+
+```sh
+python3 main.py block
 ```
 
 ### **Unblock Websites**
 ```sh
-python script.py unblock
+python main.py unblock
 ```
-
+```sh
+python3 main.py unblock
+```
 ### **Modify Blocked Websites**
-Edit the `BLOCKED_SITES` list in `script.py` to add or remove websites.
+Edit the `BLOCKED_SITES` list in `main.py` to add or remove websites.
 
 ---
 
