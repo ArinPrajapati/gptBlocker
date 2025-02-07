@@ -59,18 +59,15 @@ class WebsiteBlocker:
         if not self.validate_hosts_file():
             raise FileNotFoundError("Hosts file validation failed")
 
-        # Validate all domains before proceeding
         invalid_domains = [site for site in websites if not self.is_valid_domain(site)]
         if invalid_domains:
             raise ValueError(f"Invalid domain names: {', '.join(invalid_domains)}")
 
         try:
-            # Read current content
             with open(self.hosts_file, "r") as file:
                 content = file.readlines()
 
             if action == "block":
-                # Add new entries if they don't exist
                 existing_entries = {line.strip() for line in content}
                 new_entries = []
 
@@ -85,7 +82,6 @@ class WebsiteBlocker:
                     logging.info(f"Blocked websites: {', '.join(websites)}")
 
             elif action == "unblock":
-                # Remove entries for specified websites
                 new_content = [
                     line
                     for line in content
