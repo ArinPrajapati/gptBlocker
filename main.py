@@ -1,14 +1,21 @@
 import os
 import sys
+import logging
 
 HOSTS_FILE = (
     r"C:\Windows\System32\drivers\etc\hosts" if os.name == "nt" else "/etc/hosts"
 )
 
-REDIRECT_IP = "127.0.0.1"
+REDIRECT_IP = "139.59.195.30" ## static IP address of the server where the website is hosted
 
-BLOCKED_SITES = ["www.facebook.com", "facebook.com", "www.youtube.com", "youtube.com"]
+BLOCKED_SITES = ["www.facebook.com", "facebook.com"]
 
+# Configure logging
+logging.basicConfig(
+    filename='web_blocker.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 def is_admin():
     """Check if script is running with admin/root privileges"""
@@ -31,6 +38,7 @@ def block_websites():
             entry = f"{REDIRECT_IP} {site}\n"
             if entry not in content:
                 file.write(entry)
+                logging.info(f"Blocked {site}")
 
     print("[✅] Websites blocked successfully!")
 
@@ -48,6 +56,8 @@ def unblock_websites():
         for line in lines:
             if not any(site in line for site in BLOCKED_SITES):
                 file.write(line)
+            else:
+                logging.info(f"Unblocked {line.strip()}")
 
     print("[✅] Websites unblocked successfully!")
 
